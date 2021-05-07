@@ -1,6 +1,6 @@
 [project]
-name = "TODO"
-description = "TODO"
+name = "prescriptions-gh-release-notes-job"
+description = "Automatically construct prescriptions for linking GitHub release notes based on thoth-solver results"
 readme = "README.rst"
 requires-python = ">=3.8"
 license = {file = "LICENSE"}
