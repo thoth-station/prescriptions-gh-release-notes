@@ -222,6 +222,7 @@ def cli(
     if output == "-" or not output:
         yaml.safe_dump(prescriptions, sys.stdout)
     else:
+        _LOGGER.info("Writing results computed to %r", output)
         with open(output, "w") as f:
             yaml.safe_dump(prescriptions, f)
 
