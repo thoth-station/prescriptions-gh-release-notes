@@ -5,3 +5,7 @@
 ### Added
 
 Initial project import.
+
+## Release 0.0.1 (2021-05-07T11:35:58)
+### Features
+* Initial project import (#3)
