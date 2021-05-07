@@ -219,12 +219,24 @@ def cli(
         start_date=start_date_converted, end_date=end_date_converted
     )
 
+    result = {
+        "apiVersion": "thoth-station.ninja/v1",
+        "kind": "prescription",
+        "spec": {
+            "name": "prescriptions-gh-release-notes",
+            "release": datetime.strftime(datetime.now(), "%Y.%m.%d"),
+            "units": {
+                "wraps": prescriptions,
+            },
+        },
+    }
+
     if output == "-" or not output:
-        yaml.safe_dump(prescriptions, sys.stdout)
+        yaml.safe_dump(result, sys.stdout)
     else:
         _LOGGER.info("Writing results computed to %r", output)
         with open(output, "w") as f:
-            yaml.safe_dump(prescriptions, f)
+            yaml.safe_dump(result, f)
 
 
 __name__ == "__main__" and cli()
