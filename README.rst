@@ -5,7 +5,7 @@ Automatically construct prescriptions for linking GitHub release notes based on
 `thoth-solver <https://github.com/thoth-station/solver>`__ results.
 
 Visit `prescription documentation for more info
-https://thoth-station.ninja/docs/developers/adviser/prescription.html#githubreleasenoteswrap`__.
+<https://thoth-station.ninja/docs/developers/adviser/prescription.html#githubreleasenoteswrap>`__.
 
 Running data aggregation
 ========================
