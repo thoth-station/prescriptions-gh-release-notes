@@ -14,3 +14,16 @@ Initial project import.
 ### Features
 * Fix URL in the README file (#10)
 * Use Python 3.8 (#8)
+
+## Release 0.0.3 (2021-06-23T08:17:43)
+### Features
+* Catch any networking hiccups
+* Add missing append for release notes
+* :arrow_up: Automatic update of dependencies by Kebechet
+* :arrow_up: Automatic update of dependencies by Kebechet
+* :arrow_up: Automatic update of dependencies by Kebechet (#16)
+* :hatched_chick: update the prow resource limits (#15)
+* Add API version and header of prescription file (#14)
+* Log file where output is written to (#13)
+### Improvements
+* Provide default log level (#12)
