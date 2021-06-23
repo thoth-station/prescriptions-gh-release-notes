@@ -38,7 +38,7 @@ _LOGGER = logging.getLogger("thoth.prescriptions.gh_release_notes")
 _LOGGER.setLevel(logging.INFO)
 _DATE_FORMAT = "%Y-%m-%d"
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 __component_version__ = f"{__version__}"
 
 
