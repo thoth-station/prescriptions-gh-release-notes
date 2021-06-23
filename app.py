@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# thoth-storages
+# prescriptions-gh-notes
 # Copyright(C) 2021 Fridolin Pokorny
 #
 # This program is free software: you can redistribute it and / or modify
@@ -119,7 +119,12 @@ def construct_prescription_gh_release_notes(*, start_date: Optional[date], end_d
 
             # Try without `v' prefix.
             release_url = f"https://github.com/{org}/{repo}/releases/tag/{metadata.get('Version')}"
-            response = requests.head(release_url, allow_redirects=True)
+            try:
+                response = requests.head(release_url, allow_redirects=True)
+            except Exception as exc:
+                _LOGGER.error("Obtaining information from %r failed: %s", release_url, str(exc))
+                continue
+
             if response.status_code == 200:
                 entry = _get_release_notes_entry(org, repo, metadata, has_v_prefix=False)
                 _LOGGER.info("Found GitHub release notes at %s", release_url)
@@ -128,7 +133,12 @@ def construct_prescription_gh_release_notes(*, start_date: Optional[date], end_d
 
             # Try with `v' prefix.
             release_url = f"https://github.com/{org}/{repo}/releases/tag/v{metadata.get('Version')}"
-            response = requests.head(release_url, allow_redirects=True)
+            try:
+                response = requests.head(release_url, allow_redirects=True)
+            except Exception as exc:
+                _LOGGER.error("Obtaining information from %r failed: %s", release_url, str(exc))
+                continue
+
             if response.status_code == 200:
                 entry = _get_release_notes_entry(org, repo, metadata, has_v_prefix=True)
                 _LOGGER.info("Found GitHub release notes at %s", release_url)
