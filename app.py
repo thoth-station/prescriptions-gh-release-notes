@@ -132,6 +132,7 @@ def construct_prescription_gh_release_notes(*, start_date: Optional[date], end_d
             if response.status_code == 200:
                 entry = _get_release_notes_entry(org, repo, metadata, has_v_prefix=True)
                 _LOGGER.info("Found GitHub release notes at %s", release_url)
+                release_notes.append(entry)
                 break
 
     return {
