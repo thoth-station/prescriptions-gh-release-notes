@@ -31,7 +31,9 @@ import requests
 import yaml
 from packaging.utils import canonicalize_name
 from thoth.common import init_logging
+from thoth.common import __version__ as thoth_common_version
 from thoth.storages import SolverResultsStore
+from thoth.storages import __version__ as thoth_storages_version
 
 init_logging()
 _LOGGER = logging.getLogger("thoth.prescriptions.gh_release_notes")
@@ -39,7 +41,7 @@ _LOGGER.setLevel(logging.INFO)
 _DATE_FORMAT = "%Y-%m-%d"
 
 __version__ = "0.0.3"
-__component_version__ = f"{__version__}"
+__component_version__ = f"{__version__}+" f"storages.{thoth_storages_version}.common.{thoth_common_version}"
 
 
 def _get_release_notes_entry(
@@ -162,7 +164,7 @@ def _print_version(ctx: click.Context, _, value: str):
     if not value or ctx.resilient_parsing:
         return
 
-    click.echo(__version__)
+    click.echo(__component_version__)
     ctx.exit()
 
 
